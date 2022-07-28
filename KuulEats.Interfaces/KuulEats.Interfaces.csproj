@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\KuulEats.Models\KuulEats.Models.csproj" />
+  </ItemGroup>
+
 </Project>

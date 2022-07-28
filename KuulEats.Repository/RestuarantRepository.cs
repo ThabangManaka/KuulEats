@@ -56,7 +56,7 @@ public class RestuarantRepository
         return result;
     }
 
-    public bool UpdateUsers(Restuarant restuarant)
+    public bool UpdateRestuarant(Restuarant restuarant)
     {
         _context.Entry(restuarant).Property(x => x.RestuarantName).IsModified = true;
     
