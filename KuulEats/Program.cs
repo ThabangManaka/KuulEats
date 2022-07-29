@@ -1,3 +1,4 @@
+using KuulEats.Interfaces;
 using KuulEats.Repository;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,6 +11,8 @@ builder.Services.AddDbContext<DatabaseContext>(options =>
         => b.MigrationsAssembly("KuulEats"));
 
 }); ;
+
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 builder.Services.AddControllersWithViews();
 

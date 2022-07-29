@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using KuulEats.Interfaces;
 using KuulEats.Models;
 
 namespace KuulEats.Repository;
 
-public class RestuarantRepository
+public class RestuarantRepository : IRestuarantRepository
 {
 
   private readonly DatabaseContext _context;
