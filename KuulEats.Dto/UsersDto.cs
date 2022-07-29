@@ -1,28 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KuulEats.Models;
+namespace KuulEats.Dto;
 
-
-[Table("Users")]
-public class Users
+public class UsersDto
 {
-    [Key]
     public int UserId { get; set; }
     public string UserName { get; set; }
     public string Email { get; set; }
     public string Contactno { get; set; }
+   
     [Required]
-    public byte[] Password { get; set; }
+    public string Password { get; set; }
 
-    public byte[] PasswordKey { get; set; }
+    public string PasswordKey { get; set; }
 
     public DateTime? CreatedDate { get; set; }
     public bool Status { get; set; }
 }
-

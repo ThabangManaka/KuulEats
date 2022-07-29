@@ -9,5 +9,6 @@ namespace KuulEats.Interfaces;
 public interface IUnitOfWork
 {
     IRestuarantRepository RestuarantRepository  { get; }
+    IReservationRepository ReservationRepository { get; }
     Task<bool> SaveAsync();
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using KuulEats.Interfaces;
+using KuulEats.Repository.Data;
 
 namespace KuulEats.Repository;
 
@@ -17,6 +18,7 @@ public  class UnitOfWork : IUnitOfWork
     }
     public IRestuarantRepository RestuarantRepository => new RestuarantRepository(_context);
 
+    public IReservationRepository ReservationRepository => new ReservationRepository(_context);
 
     public async Task<bool> SaveAsync()
     {

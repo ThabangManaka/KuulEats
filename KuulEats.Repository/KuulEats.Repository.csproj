@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\KuulEats.Dto\KuulEats.Dto.csproj" />
     <ProjectReference Include="..\KuulEats.Interfaces\KuulEats.Interfaces.csproj" />
     <ProjectReference Include="..\KuulEats.Models\KuulEats.Models.csproj" />
   </ItemGroup>

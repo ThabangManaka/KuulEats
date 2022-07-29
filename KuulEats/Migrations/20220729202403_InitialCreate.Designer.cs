@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KuulEats.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20220728202109_InitialCreate")]
+    [Migration("20220729202403_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -110,9 +110,13 @@ namespace KuulEats.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Password")
+                    b.Property<byte[]>("Password")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<byte[]>("PasswordKey")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
