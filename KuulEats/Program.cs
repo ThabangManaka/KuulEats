@@ -1,5 +1,8 @@
+using KuulEats.Helpers;
 using KuulEats.Interfaces;
 using KuulEats.Repository;
+using System.Text;
+
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,8 +13,8 @@ builder.Services.AddDbContext<DatabaseContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"),b 
         => b.MigrationsAssembly("KuulEats"));
 
-}); ;
-
+}); 
+builder.Services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 builder.Services.AddControllersWithViews();
