@@ -19,6 +19,7 @@ public  class UnitOfWork : IUnitOfWork
     public IRestuarantRepository RestuarantRepository => new RestuarantRepository(_context);
 
     public IReservationRepository ReservationRepository => new ReservationRepository(_context);
+    public IUsersRepository UsersRepository => new UsersRepository(_context);
 
     public async Task<bool> SaveAsync()
     {

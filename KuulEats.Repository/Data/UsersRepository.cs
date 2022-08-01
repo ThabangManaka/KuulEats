@@ -5,12 +5,13 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using KuulEats.Dto;
+using KuulEats.Interfaces;
 using KuulEats.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace KuulEats.Repository;
 
-public  class UsersRepository
+public  class UsersRepository : IUsersRepository
 {
     private readonly DatabaseContext _context;
     public UsersRepository(DatabaseContext context)
@@ -129,6 +130,27 @@ public  class UsersRepository
         else
         {
             return false;
+        }
+    }
+
+      public  LoginResDto GetUserDetailsbyCredentials(string username)
+    {
+        try
+        {
+            var result = (from user in _context.Users
+                          //join userinrole in _context.UsersInRoles on user.UserId equals userinrole.UserId
+                          where user.UserName == username
+
+                          select new LoginResDto
+                          {          
+                             UserName = user.UserName
+                          }).SingleOrDefault();
+
+            return result;
+        }
+        catch (Exception)
+        {
+            throw;
         }
     }
 }

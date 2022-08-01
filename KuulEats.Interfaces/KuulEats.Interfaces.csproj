@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\KuulEats.Dto\KuulEats.Dto.csproj" />
     <ProjectReference Include="..\KuulEats.Models\KuulEats.Models.csproj" />
   </ItemGroup>
 
