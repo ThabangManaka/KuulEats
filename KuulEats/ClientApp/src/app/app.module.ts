@@ -1,3 +1,8 @@
+import { OrderComponent } from './order/order.component';
+import { ReservationsComponent } from './reservations/reservations.component';
+import { RestuarantComponent } from './restuarant/restuarant.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -14,7 +19,12 @@ import { MaterialModule } from './material.module';
   declarations: [
     AppComponent,
     NavMenuComponent,
-    
+    LoginComponent,
+    RegisterComponent,
+    RestuarantComponent,
+    ReservationsComponent,
+    OrderComponent
+
 
   ],
   imports: [
