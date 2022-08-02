@@ -5,6 +5,11 @@
 /dist-server
 /tmp
 /out-tsc
+/bin
+/debug
+.angular/
+.vscode/
+node_modules/
 
 # dependencies
 /node_modules

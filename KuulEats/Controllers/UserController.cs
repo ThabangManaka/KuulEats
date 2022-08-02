@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace KuulEats.Controllers;
 
 [Route("api/[controller]")]
-public class UserController : Controller
+public class UserController : Controller 
 {
     private readonly IUnitOfWork uow;
     private readonly IMapper mapper;
