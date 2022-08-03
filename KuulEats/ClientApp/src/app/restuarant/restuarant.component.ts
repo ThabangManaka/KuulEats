@@ -4,7 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { RestuarantService } from '../services/restuarant.service';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-restuarant',
@@ -18,11 +18,19 @@ export class RestuarantComponent implements OnInit {
   //dataSource = ELEMENT_DATA;
   //listData: MatTableDataSource<any>;
    dataSource: any;
+   navigationExtras: NavigationExtras = {
+    state: {
+      transd: 'TRANS001',
+      workQueue: false,
+      services: 10,
+      code: '003'
+    }
+  };
   constructor(private restuarantService : RestuarantService,public dialog: MatDialog,
     private router : Router) { }
 
   ngOnInit(): void {
-
+    
     this.restuarantService.getAllResturant().subscribe(allRestuarant=>{
       console.log(allRestuarant);
       this.dataSource = new MatTableDataSource<any>(allRestuarant),
@@ -31,8 +39,9 @@ export class RestuarantComponent implements OnInit {
       this.dataSource.paginator = this.paginator;
     })
   }
-  updateDialog() {
-   this.router.navigateByUrl('/reservations')
+  updateDialog(id:any) {
+    console.log(id)
+   this.router.navigate(['/reservations'], this.navigationExtras)
  
   }
 

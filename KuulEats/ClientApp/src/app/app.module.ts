@@ -14,6 +14,7 @@ import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { MaterialModule } from './material.module';
     ReactiveFormsModule,
     MaterialModule,
     FormsModule,
+ 
     RouterModule.forRoot([
 
 

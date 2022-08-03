@@ -22,7 +22,7 @@ export class AuthService {
  // localStorage.setItem('currentUser', JSON.stringify({ username: user.userName, token: data.token }));
  isLoggedIn(): boolean {
   
-    return localStorage.getItem('token')!=null;
+    return localStorage.getItem('currentUser')!=null;
   }
 
   Register(user : UserForRegister) {

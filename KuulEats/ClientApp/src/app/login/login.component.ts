@@ -26,7 +26,8 @@ export class LoginComponent implements OnInit {
     this.authService.Login(form.value).subscribe(result => {
       if (result !=null) {
         console.log(result)
-         localStorage.setItem('token', result.token);
+       //  localStorage.setItem('token', result.token);
+         localStorage.setItem('currentUser',  result.userId);
          this.router.navigate(['restuarant']);
       }
     } )
