@@ -47,6 +47,7 @@ namespace KuulEats.Controllers
             var loginRes = new LoginResDto();
             loginRes.UserName = user.UserName;
             //UserType
+            loginRes.UserId = user.UserId;
              loginRes.Token = CreateJWT(user);
             return Ok(loginRes);
 

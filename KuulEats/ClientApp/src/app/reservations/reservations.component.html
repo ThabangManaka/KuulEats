@@ -1,1 +1,66 @@
-<p>reservations works!</p>
+<div class="login-page">
+    <mat-card class="mat-elevation-z12">
+      <mat-card-title style="text-align:center;">Create New Reservation</mat-card-title>
+      <mat-card-content>
+        <form [formGroup]="myForm"  (ngSubmit)="onSubmit(myForm)">
+          <mat-form-field>
+            <input matInput formControlName = "StartDate"
+              [matDatepicker]="myDatePicker" [min]="minDate" [max]="maxDate">
+              <mat-datepicker-toggle [for] ="myDatePicker" matSuffix>  </mat-datepicker-toggle>
+              <mat-datepicker #myDatePicker></mat-datepicker>
+             
+              
+            <!-- <mat-icon matSuffix>today</mat-icon> -->
+            <!-- <mat-error
+              *ngIf="username.invalid">
+              Username is required
+            </mat-error> -->
+  
+          </mat-form-field>
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="Time"
+              required
+            
+              formControlName = "StartTime">
+              <!-- <mat-error *ngIf="email.invalid">Email is required</mat-error> -->
+            <mat-icon matSuffix>alarm</mat-icon>
+          </mat-form-field>
+          <mat-form-field>
+            <input
+              matInput
+              placeholder="People"
+              required
+              type="number"
+              formControlName = "People">
+              <!-- <mat-error *ngIf="email.invalid">Email is required</mat-error> -->
+            <mat-icon matSuffix>supervisor_account</mat-icon>
+          </mat-form-field>
+
+          <mat-form-field>
+             <textarea
+              matInput
+              placeholder="GIve us a Description.."
+              required
+              name="Contactno"
+              formControlName = "Description"> </textarea>
+              <!-- <mat-error *ngIf="email.invalid">Contact is required</mat-error> -->
+        
+          </mat-form-field>
+             
+         
+        
+            <button
+            mat-raised-button
+            color="primary"
+            class="login-button" >
+            Save
+           </button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  
+  
+  

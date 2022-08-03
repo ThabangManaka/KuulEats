@@ -1,0 +1,43 @@
+h2 {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+   color: #fff;
+}
+// .login-page {
+//  top: 0;
+//   margin: 0;
+//    padding: 0;
+//    width: 100%;
+//   height: 100%;
+//   display: block;
+// //   background-color: #303F9F;
+//   background-position: center;
+//    background-repeat: no-repeat;
+//   background-size: cover;
+//    overflow: hidden;
+// background-image:url("https://www.webpartner.co.za/images/bottombg.jpg");
+//     }
+
+mat-toolbar {
+  margin-bottom: 20px;
+}
+
+mat-card {
+  width: 30%;
+  margin: 10% auto;
+  border-radius: 8px;
+}
+mat-form-field, mat-checkbox {
+  width: 80%;
+  display: block;
+  margin: auto;
+}
+.login-button {
+  margin-top: 20px;
+  display: block;
+  width: 80%;
+  margin: 20px auto;
+}

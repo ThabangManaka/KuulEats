@@ -140,8 +140,9 @@ public  class UsersRepository : IUsersRepository
                           where user.UserName == username
 
                           select new LoginResDto
-                          {          
-                             UserName = user.UserName
+                          {
+                              UserId = user.UserId,
+                              UserName = user.UserName
                           }).SingleOrDefault();
 
             return result;
