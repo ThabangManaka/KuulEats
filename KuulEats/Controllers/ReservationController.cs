@@ -1,21 +1,30 @@
 ﻿using AutoMapper;
 using KuulEats.Interfaces;
+using KuulEats.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace KuulEats.Controllers;
-public class ReservationController : Controller
+namespace KuulEats.Controllers
 {
 
-    private readonly IUnitOfWork uow;
-    private readonly IMapper mapper;
 
-    public ReservationController(IUnitOfWork uow, IMapper mapper)
+    [Route("api/[controller]")]
+    public class ReservationController : Controller
     {
-        this.uow = uow;
-        this.mapper = mapper;
-    }
-    public IActionResult Index()
-    {
-        return View();
+
+        private readonly IUnitOfWork uow;
+        private readonly IMapper mapper;
+
+        public ReservationController(IUnitOfWork uow, IMapper mapper)
+        {
+            this.uow = uow;
+            this.mapper = mapper;
+        }
+        [HttpPost("add")]
+        public async Task<IActionResult> Post([FromBody] Reservation reservations)
+        {
+            uow.ReservationRepository.InsertReservation(reservations);
+            await uow.SaveAsync();
+            return StatusCode(201);
+        }
     }
 }

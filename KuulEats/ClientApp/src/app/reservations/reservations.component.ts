@@ -1,3 +1,4 @@
+import { ReservationsService } from './../services/reservations.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
@@ -12,7 +13,8 @@ export class ReservationsComponent implements OnInit {
   myForm: FormGroup ;
   restuarantId: any
   userId :any;
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute,
+      private reservations : ReservationsService) { }
 
   ngOnInit(): void {
        this.restuarantId= this.route.snapshot.paramMap.get('id')
@@ -26,12 +28,13 @@ export class ReservationsComponent implements OnInit {
       StartTime: new FormControl('' ,[Validators.required]),
       People: new FormControl('' ,[Validators.required]),
       Description: new FormControl('', [Validators.required]),
-      ReservationStatusId:new FormControl('Booked', [Validators.required])
+      ReservationStatusId:new FormControl(1, [Validators.required])
      
     });
   }
   onSubmit(form: any) {
     console.log(form.value)
    // this.authService.Register(form.value);
+    this.reservations.AddReservation(form.value)
     }
 }
