@@ -6,6 +6,8 @@ using KuulEats.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KuulEats.Controllers;
+[Route("api/[controller]")]
+[ApiController]
 public class RestuarantController : Controller
 {
     private readonly IUnitOfWork uow;

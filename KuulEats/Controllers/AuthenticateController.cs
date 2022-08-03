@@ -47,39 +47,38 @@ namespace KuulEats.Controllers
             var loginRes = new LoginResDto();
             loginRes.UserName = user.UserName;
             //UserType
-            // loginRes.Token = CreateJWT(user);
+             loginRes.Token = CreateJWT(user);
             return Ok(loginRes);
 
         }
 
 
-        //private string CreateJWT(Users user)
-        //{
-        //    //var secretKey = configuration.GetSection("AppSettings:Key").Value;
-        //    var key = new SymmetricSecurityKey(Encoding.UTF8
-        //        .GetBytes(_app));
+        private string CreateJWT(Users user)
+        {
+            //var secretKey = configuration.GetSection("AppSettings:Key").Value;
+            var key = new SymmetricSecurityKey(Encoding.UTF8
+               .GetBytes(_appSettings.Secret));
 
-        //    double tokenExpiryTime = Convert.ToDouble(_appSetting.ExpireTime);
+            double tokenExpiryTime = Convert.ToDouble(_appSettings.ExpireTime);
+            var claims = new Claim[] {
+                    new Claim(ClaimTypes.Name,user.UserName),
+                    //new Claim(ClaimTypes.NameIdentifier,user.Id.ToString())
+                };
 
-        //    var claims = new Claim[] {
-        //            new Claim(ClaimTypes.Name,user.UserName),
-        //            //new Claim(ClaimTypes.NameIdentifier,user.Id.ToString())
-        //        };
+            var signingCredentials = new SigningCredentials(
+                    key, SecurityAlgorithms.HmacSha256Signature);
 
-        //    var signingCredentials = new SigningCredentials(
-        //            key, SecurityAlgorithms.HmacSha256Signature);
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(claims),
+                Expires = DateTime.UtcNow.AddMinutes(tokenExpiryTime),
+                SigningCredentials = signingCredentials
+            };
 
-        //    var tokenDescriptor = new SecurityTokenDescriptor
-        //    {
-        //        Subject = new ClaimsIdentity(claims),
-        //        Expires = DateTime.UtcNow.AddMinutes(tokenExpiryTime),
-        //        SigningCredentials = signingCredentials
-        //    };
-
-        //    var tokenHandler = new JwtSecurityTokenHandler();
-        //    var token = tokenHandler.CreateToken(tokenDescriptor);
-        //    return tokenHandler.WriteToken(token);
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+            return tokenHandler.WriteToken(token);
+        }
     }
-
 
 }

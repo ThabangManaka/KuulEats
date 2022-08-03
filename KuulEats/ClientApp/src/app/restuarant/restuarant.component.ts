@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { RestuarantService } from '../services/restuarant.service';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-restuarant',
@@ -13,11 +14,12 @@ import { MatPaginator } from '@angular/material/paginator';
 export class RestuarantComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  displayedColumns: string[] = ['RestuarantName','actions'];
+  displayedColumns: string[] = ['restuarantName','actions'];
   //dataSource = ELEMENT_DATA;
   //listData: MatTableDataSource<any>;
    dataSource: any;
-  constructor(private restuarantService : RestuarantService,public dialog: MatDialog) { }
+  constructor(private restuarantService : RestuarantService,public dialog: MatDialog,
+    private router : Router) { }
 
   ngOnInit(): void {
 
@@ -30,7 +32,7 @@ export class RestuarantComponent implements OnInit {
     })
   }
   updateDialog() {
-
+   this.router.navigateByUrl('/reservations')
  
   }
 

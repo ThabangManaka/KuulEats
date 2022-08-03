@@ -3,7 +3,7 @@
 
     <mat-card-title style="text-align:center;">Sign Up</mat-card-title>
     <mat-card-content>
-      <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+      <form [formGroup]="myForm"  (ngSubmit)="onSubmit(myForm)">
 
         <mat-form-field>
           <input matInput
@@ -11,9 +11,8 @@
                  required
                  id="email"
                  name="email"
-                 ngModel
-                 #email="ngModel">
-          <mat-error *ngIf="email.invalid">Email is required</mat-error>
+                 formControlName = "UserName">
+          <!-- <mat-error *ngIf="email.invalid">Email is required</mat-error> -->
           <mat-icon matSuffix>email</mat-icon>
         </mat-form-field>
         <mat-form-field>
@@ -24,14 +23,13 @@
                  minlength="6"
                  id="password"
                  name="password"
-                 ngModel
-                 #password="ngModel">
-          <mat-error *ngIf="password.errors && password.errors.required">
+                 formControlName = "Password">
+          <!-- <mat-error *ngIf="password.errors && password.errors.required">
             Password is required
           </mat-error>
           <mat-error *ngIf="password.errors && password.errors.minlength">
             Password must be of length 6
-          </mat-error>
+          </mat-error> -->
           <mat-icon matSuffix>lock</mat-icon>
 
         </mat-form-field>

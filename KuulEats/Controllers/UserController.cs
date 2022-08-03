@@ -19,7 +19,7 @@ public class UserController : Controller
         this.mapper = mapper;
     }
 
-    [HttpPost]
+   // [HttpPost]
     public HttpResponseMessage Post([FromBody] UsersDto usersDto)
     {
         if (ModelState.IsValid)
@@ -58,6 +58,14 @@ public class UserController : Controller
             return response;
         }
     }
-    
+  
+
+    [HttpPost("register")]
+    public async Task<IActionResult> Registers([FromBody] UsersDto usersDto)
+    {
+        uow.UsersRepository.Register(usersDto);
+        await uow.SaveAsync();
+        return StatusCode(201);
     }
+}
 

@@ -46,7 +46,7 @@ public  class UsersRepository : IUsersRepository
     {
         using (var hmac = new HMACSHA512(passwordKey))
         {
-            var passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(passwordText));
+            var passwordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(passwordText));
 
             for (int i = 0; i < passwordHash.Length; i++)
             {
@@ -76,7 +76,7 @@ public  class UsersRepository : IUsersRepository
         using (var hmac = new HMACSHA512())
         {
             passwordKey = hmac.Key;
-            passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(userDto.Password));
+            passwordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(userDto.Password));
         }
 
         Users user = new Users();
@@ -87,8 +87,6 @@ public  class UsersRepository : IUsersRepository
         user.Password = passwordHash;
         user.PasswordKey = passwordKey;
         user.CreatedDate = DateTime.Now;
-       
-
 
        _context.Users.Add(user);
 
