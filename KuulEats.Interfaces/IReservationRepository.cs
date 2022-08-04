@@ -10,4 +10,7 @@ namespace KuulEats.Interfaces;
 public  interface IReservationRepository
 {
     public bool InsertReservation(Reservation reservation);
+    public List<Reservation> GetAllReservation();
+    public bool UpdateRestuarant(Reservation reservation);
+    public Task<Reservation> FindScheme(int id);
 }

@@ -14,9 +14,12 @@ export class ReservationsComponent implements OnInit {
   restuarantId: any
   userId :any;
   constructor(private route: ActivatedRoute,
-      private reservations : ReservationsService) { }
+      private reservations : ReservationsService
+      ) { }
 
   ngOnInit(): void {
+
+    this.reservations.getAllReservations().subscribe(x=> console.log(x));
        this.restuarantId= this.route.snapshot.paramMap.get('id')
       console.log(this.restuarantId);
       this.userId=   localStorage.getItem("currentUser");

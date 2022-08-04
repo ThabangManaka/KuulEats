@@ -10,5 +10,7 @@ namespace KuulEats.Dto
     {
         public int RestuarantId { get; set; }
         public string RestuarantName { get; set; }
+
+       
     }
 }

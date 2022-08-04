@@ -33,13 +33,13 @@ namespace KuulEats.Repository.Data;
         }
     }
 
-    //public List<Reservation> GetAllReservation()
-    //{
-    //    var result = (from reservation in _context.Reservations
-    //                  select reservation).ToList();
+    public List<Reservation> GetAllReservation()
+    {
+        var result = (from reservation in _context.Reservations
+                      select reservation).ToList();
 
-    //    return result;
-    //}
+        return result;
+    }
 
     //public Reservation GetReservationtbyId(int reservationId)
     //{
@@ -50,21 +50,25 @@ namespace KuulEats.Repository.Data;
     //    return result;
     //}
 
-    //public bool UpdateRestuarant(Reservation reservation)
-    //{
-    //    _context.Entry(reservation).Property(x => x.Description).IsModified = true;
+    public async Task<Reservation> FindScheme(int id)
+    {
+        return await _context.Reservations.FindAsync(id);
+    }
+    public bool UpdateRestuarant(Reservation reservation)
+    {
+        _context.Entry(reservation).Property(x => x.Description).IsModified = true;
 
 
-    //    var result = _context.SaveChanges();
-    //    if (result > 0)
-    //    {
-    //        return true;
-    //    }
-    //    else
-    //    {
-    //        return false;
-    //    }
-    //}
+        var result = _context.SaveChanges();
+        if (result > 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 
     //public bool DeleteResturants(int reservationId)
     //{

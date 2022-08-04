@@ -20,5 +20,11 @@ public class AutoMapperProfiles : Profile
         CreateMap<Restuarant, RestuarantDto>().ReverseMap();
         CreateMap<Restuarant, RestuarantDto>()
        .ForMember(dest => dest.RestuarantName, opt => opt.MapFrom(src => src.RestuarantName));
+        CreateMap<Reservation, ReservationDto>().ReverseMap();
+        CreateMap<Reservation, ReservationDto>()
+         .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.Description))
+         .ForMember(dest => dest.RestuarantId, opt => opt.MapFrom(src => src.RestuarantId))
+         .ForMember(dest => dest.UserId, opt => opt.MapFrom(src => src.UserId))
+         .ForMember(dest => dest.ReservationStatusId, opt => opt.MapFrom(src => src.ReservationStatusId));
     }
 }
