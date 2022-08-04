@@ -8,21 +8,21 @@
               [matDatepicker]="myDatePicker" [min]="minDate" [max]="maxDate">
               <mat-datepicker-toggle [for] ="myDatePicker" matSuffix>  </mat-datepicker-toggle>
               <mat-datepicker #myDatePicker></mat-datepicker>
-             
-              
+
+
             <!-- <mat-icon matSuffix>today</mat-icon> -->
             <!-- <mat-error
               *ngIf="username.invalid">
               Username is required
             </mat-error> -->
-  
+
           </mat-form-field>
           <mat-form-field>
             <input
               matInput
               placeholder="Time"
               required
-            
+
               formControlName = "StartTime">
               <!-- <mat-error *ngIf="email.invalid">Email is required</mat-error> -->
             <mat-icon matSuffix>alarm</mat-icon>
@@ -46,11 +46,11 @@
               name="Contactno"
               formControlName = "Description"> </textarea>
               <!-- <mat-error *ngIf="email.invalid">Contact is required</mat-error> -->
-        
+
           </mat-form-field>
-             
-         
-        
+
+
+
             <button
             mat-raised-button
             color="primary"
@@ -61,6 +61,51 @@
       </mat-card-content>
     </mat-card>
   </div>
-  
-  
-  
+
+
+<mat-card>
+  <mat-card-header>
+      <mat-card-title>Reservation List</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- Position Column -->
+
+      <ng-container matColumnDef="reservationId">
+        <th mat-header-cell *matHeaderCellDef> Reservation ID</th>
+        <td mat-cell *matCellDef="let element"> {{element.reservationId}} </td>
+      </ng-container>
+
+        <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Description</th>
+        <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+      </ng-container>
+
+   <!--actions-->
+   <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef>  </th>
+    <td mat-cell *matCellDef="let element; let i=index;">
+      <button mat-raised-button class="updateBtn"  (click)="updateDialog(element.restuarantId)">
+        <mat-icon aria-label="Edit">edit</mat-icon>
+      </button>
+      <button mat-raised-button class="deleteBtn"   [routerLink]="['/order',element.reservationId]">
+
+        <mat-icon aria-label="Delete">
+          <a [routerLink]="['/reservations',element.restuarantId]"></a>
+        </mat-icon>
+      </button>
+    </td>
+  </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+  </mat-card-content>
+</mat-card>
+

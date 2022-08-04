@@ -19,6 +19,7 @@ export class ReservationsService {
    }
 
    getAllReservations(): Observable<string[]> {
-    return this.http.get<string[]>(this.baseUrl );
+
+    return this.http.get<string[]>(this.baseUrl  );
 }
 }

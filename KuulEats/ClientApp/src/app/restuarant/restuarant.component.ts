@@ -18,19 +18,12 @@ export class RestuarantComponent implements OnInit {
   //dataSource = ELEMENT_DATA;
   //listData: MatTableDataSource<any>;
    dataSource: any;
-   navigationExtras: NavigationExtras = {
-    state: {
-      transd: 'TRANS001',
-      workQueue: false,
-      services: 10,
-      code: '003'
-    }
-  };
+
   constructor(private restuarantService : RestuarantService,public dialog: MatDialog,
     private router : Router) { }
 
   ngOnInit(): void {
-    
+
     this.restuarantService.getAllResturant().subscribe(allRestuarant=>{
       console.log(allRestuarant);
       this.dataSource = new MatTableDataSource<any>(allRestuarant),
@@ -41,8 +34,8 @@ export class RestuarantComponent implements OnInit {
   }
   updateDialog(id:any) {
     console.log(id)
-   this.router.navigate(['/reservations'], this.navigationExtras)
- 
+   
+
   }
 
   openDialog(){}

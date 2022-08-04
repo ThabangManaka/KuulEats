@@ -10,11 +10,11 @@ import { AuthGuard } from './shared/auth.guard';
 
 const routes: Routes = [
   {
-    path: '', component: RestuarantComponent, 
+    path: '', component: RestuarantComponent,
       canActivate:[AuthGuard]
   },
 {
-  
+
   path: 'login', component: LoginComponent
 },
 {
@@ -25,11 +25,11 @@ const routes: Routes = [
      canActivate:[AuthGuard]
   },
   {
-    path: 'restuarant', component: RestuarantComponent,  
+    path: 'restuarant', component: RestuarantComponent,
      canActivate:[AuthGuard]
   },
   {
-    path: 'order', component: OrderComponent, 
+    path: 'order/:id', component: OrderComponent,
       canActivate:[AuthGuard]
   },
 ]
