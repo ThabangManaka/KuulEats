@@ -63,3 +63,13 @@ mat-toolbar i {
   color: #242424;
   transition: 250ms;
 }
+ul{
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+}
+
+li a{
+  padding: 1rem;
+  display: inline-block;
+}

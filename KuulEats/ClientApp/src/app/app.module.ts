@@ -1,3 +1,5 @@
+import { CartPageComponent } from './cart-page/cart-page.component';
+import { FoodPageComponent } from './food-page/food-page.component';
 import { OrderComponent } from './order/order.component';
 import { ReservationsComponent } from './reservations/reservations.component';
 import { RestuarantComponent } from './restuarant/restuarant.component';
@@ -15,9 +17,11 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
+
 import { TagsComponent } from './partials/tags/tags.component';
 import { SearchComponent } from './partials/search/search.component';
 import { NotFoundComponent } from './partials/not-found/not-found.component';
+
 
 @NgModule({
   declarations: [
@@ -30,13 +34,16 @@ import { NotFoundComponent } from './partials/not-found/not-found.component';
     OrderComponent,
     TagsComponent,
     SearchComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    FoodPageComponent,
+    CartPageComponent
 
 
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
+
     AppRoutingModule,
     ReactiveFormsModule,
     MaterialModule,
@@ -46,7 +53,8 @@ import { NotFoundComponent } from './partials/not-found/not-found.component';
 
 
     ]),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,9 +1,15 @@
 <mat-toolbar class="toolbar">
-  <a routerLink="/" class="navbar-logo"><i class='fab fa-typo3'></i> </a>
+  <a routerLink="/" class="navbar-logo"><i class='fab fa-typo3'>KUULEATS</i> </a>
 
   <span class="toolbar-spacer"></span>
 
-
- <a class="nav-links-mobile" mat-raised-button (click)="logout()" > Logout</a> 
+<li *ngIf= "userLoggeInd">
+  <a class="nav-links-mobile" mat-raised-button (click)="logout()" > Logout</a>
+</li>
+<li>
+  <a routerLink="/cart-page">
+    Cart <span>{{cartQuantity}}</span>
+  </a>
+</li>
 
 </mat-toolbar>

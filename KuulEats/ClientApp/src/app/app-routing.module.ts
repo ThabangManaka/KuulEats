@@ -8,6 +8,7 @@ import { RegisterComponent } from './register/register.component';
 import { ReservationsComponent } from './reservations/reservations.component';
 import { RestuarantComponent } from './restuarant/restuarant.component';
 import { AuthGuard } from './shared/auth.guard';
+import { FoodPageComponent } from './food-page/food-page.component';
 
 const routes: Routes = [
   {
@@ -35,7 +36,7 @@ const routes: Routes = [
   },
   // { path: 'search/:searchTerm', component: HomeComponent },
   { path: 'tag/:tag', component: OrderComponent },
-  //{path:'food/:id', component:FoodComponent},
+  {path:'food/:id', component:FoodPageComponent},
   {path:'cart-page', component: CartPageComponent}
 ]
   ;

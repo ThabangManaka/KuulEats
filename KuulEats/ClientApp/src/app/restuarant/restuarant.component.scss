@@ -1,0 +1,44 @@
+@import 'src/app/styles/colors';
+@import 'src/app/styles/font';
+@import 'src/app/styles/variables';
+
+img { width: 40px; height: 40px; }
+
+
+mat-card {
+  width: 80%;
+  margin: 5% auto;
+  border-radius: 8px;
+}
+
+.employee-table {
+  &__content {
+    @media (max-width: $small) {
+      overflow-x: scroll;
+    }
+  }
+
+  &__table {
+    width:100%;
+    box-shadow: none;
+
+    @media (max-width: $small) {
+      width: 200%;
+    }
+  }
+
+  &__table-checkbox {
+    width: 32px;
+    padding-left: 24px;
+  }
+
+  &__table-header {
+    padding: 1rem;
+    font-size: $fs-small;
+  }
+
+  &__table-body {
+    padding: 1rem;
+    font-size: $fs-small;
+  }
+}

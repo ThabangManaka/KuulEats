@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-nav-menu',
@@ -8,7 +10,13 @@ import { Router } from '@angular/router';
 })
 export class NavMenuComponent {
   isExpanded = false;
-   constructor(private router: Router) {}
+  userLoggeInd: any
+  cartQuantity=0;
+   constructor(private router: Router,  private authService: AuthService,cartService:CartService) {
+     cartService.getCartObservable().subscribe((newCart) => {
+    this.cartQuantity = newCart.totalCount;
+  })
+ }
   collapse() {
     this.isExpanded = false;
   }
@@ -16,9 +24,15 @@ export class NavMenuComponent {
   toggle() {
     this.isExpanded = !this.isExpanded;
   }
-
+  user() {
+  //this.authService.isLoggedIn()
+  this.userLoggeInd= localStorage.getItem("currentUser")
+  }
+  
   logout() {
    localStorage.clear();
       this.router.navigate(["login"]);
   }
+
+// userLoggeInd= localStorage.getItem("currentUser");
 }

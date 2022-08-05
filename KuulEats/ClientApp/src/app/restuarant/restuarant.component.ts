@@ -14,7 +14,7 @@ import { NavigationExtras, Router } from '@angular/router';
 export class RestuarantComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  displayedColumns: string[] = ['restuarantName','actions'];
+  displayedColumns: string[] = ['ImageUrl','restuarantName','actions'];
   //dataSource = ELEMENT_DATA;
   //listData: MatTableDataSource<any>;
    dataSource: any;
@@ -34,7 +34,7 @@ export class RestuarantComponent implements OnInit {
   }
   updateDialog(id:any) {
     console.log(id)
-   
+
 
   }
 
