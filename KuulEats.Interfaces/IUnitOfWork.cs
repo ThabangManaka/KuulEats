@@ -11,5 +11,6 @@ public interface IUnitOfWork
     IRestuarantRepository RestuarantRepository  { get; }
     IReservationRepository ReservationRepository { get; }
     IUsersRepository UsersRepository { get; }
+    IOrderRepository OrderRepository { get; }
     Task<bool> SaveAsync();
 }
