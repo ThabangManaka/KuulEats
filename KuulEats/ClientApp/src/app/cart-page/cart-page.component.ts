@@ -1,3 +1,6 @@
+import { OrderService } from './../services/order.service';
+import { Order } from './../models/Oder';
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Cart } from '../models/Cart';
 import { CartItem } from '../models/CartItem';
@@ -10,9 +13,15 @@ import { CartService } from '../services/cart.service';
 })
 export class CartPageComponent implements OnInit {
   cart!: Cart;
-  constructor(private cartService: CartService) {
+  reservationId: any;
+  constructor(private cartService: CartService,activatedRoute:ActivatedRoute,
+    private orderService : OrderService) {
+
+    this.reservationId= activatedRoute.snapshot.paramMap.get('id');
+    console.log(this.reservationId)
     this.cartService.getCartObservable().subscribe((cart) => {
       this.cart = cart;
+      console.log(this.cart)
     })
    }
 
@@ -28,4 +37,18 @@ export class CartPageComponent implements OnInit {
     this.cartService.changeQuantity(cartItem.food.id, quantity);
   }
 
+  order() {
+       const order:  Order ={
+        Description: this.cart,
+        ReservationId: this.reservationId
+       
+     }
+     this.orderService.PlaceOrder(order)
+   
+
+  
+  }
+
 }
+
+  

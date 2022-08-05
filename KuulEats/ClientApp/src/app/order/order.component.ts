@@ -10,8 +10,13 @@ import { FoodService } from '../services/food.service';
 })
 export class OrderComponent implements OnInit {
   foods: Food[] = [];
+  reservationId: any;
   constructor(private foodService: FoodService, activatedRoute: ActivatedRoute) {
+
+    this.reservationId= activatedRoute.snapshot.paramMap.get('id');
+     console.log(this.reservationId)
     activatedRoute.params.subscribe((params) => {
+      console.log(params)
       if (params.searchTerm)
         this.foods = this.foodService.getAllFoodsBySearchTerm(params.searchTerm);
       else if (params.tag)

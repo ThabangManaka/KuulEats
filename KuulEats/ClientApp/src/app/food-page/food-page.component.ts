@@ -12,8 +12,11 @@ import { FoodService } from '../services/food.service';
 export class FoodPageComponent implements OnInit {
 
   food!: Food;
+  reservationId: any;
   constructor(activatedRoute:ActivatedRoute, foodService:FoodService,
     private cartService:CartService, private router: Router) {
+      this.reservationId= activatedRoute.snapshot.paramMap.get('id');
+      console.log(this.reservationId)
     activatedRoute.params.subscribe((params) => {
       if(params.id)
       this.food = foodService.getFoodById(params.id);
@@ -25,6 +28,6 @@ export class FoodPageComponent implements OnInit {
 
   addToCart(){
     this.cartService.addToCart(this.food);
-    this.router.navigateByUrl('/cart-page');
+    this.router.navigate(['/cart-page/',this.reservationId]);
   }
 }

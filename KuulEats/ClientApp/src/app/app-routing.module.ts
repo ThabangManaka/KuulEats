@@ -36,8 +36,8 @@ const routes: Routes = [
   },
   // { path: 'search/:searchTerm', component: HomeComponent },
   { path: 'tag/:tag', component: OrderComponent },
-  {path:'food/:id', component:FoodPageComponent},
-  {path:'cart-page', component: CartPageComponent}
+  {path:'food/:id/:id', component:FoodPageComponent},
+  {path:'cart-page/:id', component: CartPageComponent}
 ]
   ;
 
