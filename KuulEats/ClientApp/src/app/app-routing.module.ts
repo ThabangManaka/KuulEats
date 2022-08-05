@@ -1,3 +1,4 @@
+import { CartPageComponent } from './cart-page/cart-page.component';
 
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, CanActivate } from '@angular/router';
@@ -32,6 +33,10 @@ const routes: Routes = [
     path: 'order/:id', component: OrderComponent,
       canActivate:[AuthGuard]
   },
+  // { path: 'search/:searchTerm', component: HomeComponent },
+  { path: 'tag/:tag', component: OrderComponent },
+  //{path:'food/:id', component:FoodComponent},
+  {path:'cart-page', component: CartPageComponent}
 ]
   ;
 

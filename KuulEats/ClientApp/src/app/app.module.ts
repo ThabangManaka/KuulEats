@@ -15,6 +15,9 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
+import { TagsComponent } from './partials/tags/tags.component';
+import { SearchComponent } from './partials/search/search.component';
+import { NotFoundComponent } from './partials/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
     RegisterComponent,
     RestuarantComponent,
     ReservationsComponent,
-    OrderComponent
+    OrderComponent,
+    TagsComponent,
+    SearchComponent,
+    NotFoundComponent
 
 
   ],
@@ -35,7 +41,7 @@ import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
     ReactiveFormsModule,
     MaterialModule,
     FormsModule,
- 
+
     RouterModule.forRoot([
 
 
