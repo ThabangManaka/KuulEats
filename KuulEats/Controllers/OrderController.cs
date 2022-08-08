@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Net;
+using AutoMapper;
 using KuulEats.Interfaces;
 using KuulEats.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -21,15 +22,63 @@ public class OrderController : Controller
     [HttpGet]
     public IEnumerable<Order> Get()
     {
-        return uow.OrderRepository.GetAllOrder();
+        try
+        {
+            return uow.OrderRepository.GetAllOrder();
+        }
+        catch (Exception)
+        {
+            throw;
+        }
     }
+    [HttpGet("post/{id}")]
 
-    [HttpPost("add")]
-    public async Task<IActionResult> Post([FromBody] Order orders)
+    public IEnumerable<Order>  GetOrder(int id)
     {
-        uow.OrderRepository.InsertOrder(orders);
-        await uow.SaveAsync();
-        return StatusCode(201);
+        try
+        {
+
+            return uow.OrderRepository.GetAllOrderdById(id);
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+    [HttpPost("post")]
+    public  HttpResponseMessage AddOrder([FromBody] Order orders)
+    {
+
+        try    
+        {
+            if (ModelState.IsValid)
+            {
+                uow.OrderRepository.InsertOrder(orders);
+                uow.SaveAsync();
+
+                var response = new HttpResponseMessage()
+                {
+                    StatusCode = HttpStatusCode.OK
+                };
+
+                return response;
+            }
+            else
+            {
+                var response = new HttpResponseMessage()
+                {
+
+                    StatusCode = HttpStatusCode.BadRequest
+                };
+
+                return response;
+            }
+            
+        }catch (Exception)
+        {
+            throw;
+        }
+      
     }
 
 

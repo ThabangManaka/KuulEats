@@ -39,5 +39,14 @@ public  class OrderRepository : IOrderRepository
         return result;
     }
 
+    public List<Order>  GetAllOrderdById(int reservationId)
+    { 
+        var result =  (from order in _context.Orders
+                      where order.ReservationId == reservationId
+                      select order).ToList();
+
+        return result;
+    }
+
 
 }

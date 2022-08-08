@@ -12,4 +12,5 @@ public  interface IOrderRepository
 {
     public bool InsertOrder(Order order);
     List<Order> GetAllOrder();
+    public List<Order> GetAllOrderdById(int reservationId);
 }
