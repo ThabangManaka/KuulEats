@@ -11,10 +11,13 @@ import { CartService } from '../services/cart.service';
 export class NavMenuComponent {
   isExpanded = false;
   userLoggeInd: any
+  numberInCart: number;
   cartQuantity=0;
    constructor(private router: Router,  private authService: AuthService,cartService:CartService) {
      cartService.getCartObservable().subscribe((newCart) => {
+      console.log(newCart)
     this.cartQuantity = newCart.totalCount;
+    this.numberInCart= newCart.totalCount;
   })
  }
   collapse() {

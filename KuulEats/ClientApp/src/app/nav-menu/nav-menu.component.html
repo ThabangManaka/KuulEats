@@ -2,14 +2,73 @@
   <a routerLink="/" class="navbar-logo"><i class='fab fa-typo3'>KUULEATS</i> </a>
 
   <span class="toolbar-spacer"></span>
+  <button
+  [matBadge]="numberInCart"
+  [matBadgeHidden]="numberInCart < 1"
+  matBadgeColor="accent"
+  mat-button
+  routerLink="/shopping-cart"
+  class="toolbar-item"
+>
+<mat-icon>shopping_cart</mat-icon>
+</button> 
 
-<li *ngIf= "userLoggeInd">
-  <a class="nav-links-mobile" mat-raised-button (click)="logout()" > Logout</a>
-</li>
-<li>
-  <a routerLink="/cart-page">
-    Cart <span>{{cartQuantity}}</span>
-  </a>
-</li>
 
-</mat-toolbar>
+<mat-menu #menu="matMenu">
+  <button
+      
+  mat-menu-item
+  routerLink=""
+></button>
+<mat-icon>perm_identity</mat-icon>  </mat-menu>
+
+</mat-toolbar> 
+
+<!-- 
+<mat-toolbar color="primary">
+ 
+  <button mat-button routerLink="/" class="toolbar-item">Oshop</button>
+  <span fxFlex></span>
+  <div fxLayout fxLayoutGap="32px" fxHide.xs>
+     <button
+      [matBadge]="numberInCart"
+      [matBadgeHidden]="numberInCart < 1"
+      matBadgeColor="accent"
+      mat-button
+      routerLink="/shopping-cart"
+      class="toolbar-item"
+    >
+      Shopping cart
+    </button> 
+
+    <div >
+      <button
+      mat-button
+      [matMenuTriggerFor]="menu"
+      class="toolbar-item"
+    >
+  
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="/my-orders">My orders</button>
+      <button mat-menu-item routerLink="/admin/orders">
+        Manage orders
+      </button>
+      <button
+      
+        mat-menu-item
+        routerLink="/admin/products"
+      >
+        Manage products
+      </button>
+      <button mat-menu-item (click)="logout()">Log out</button>
+    </mat-menu>
+    </div>
+
+    <ng-template #anonymousUser>
+      <button mat-button routerLink="/login" class="toolbar-item">
+        Log in
+      </button>
+    </ng-template>
+  </div>
+</mat-toolbar> -->

@@ -1,15 +1,38 @@
-<div class="row no-gutters">
+<!-- <div class="row no-gutters">
   <div class="col-2">
     <button
       (click)="removeFromCart()"
       class="btn btn-secondary btn-block">-</button>
   </div>
   <div class="col text-center">
-  <!-- <div>{{ shoppingCart.getQuantity(product) }} in cart</div> -->
+ <div>{{ shoppingCart.getQuantity(product) }} in cart</div> 
   </div>
   <div class="col-2">
     <button
       (click)="addToCart()"
       class="btn btn-secondary btn-block">+</button>
   </div>
-</div>
+</div> -->
+
+
+ <div fxLayout fxLayoutAlign="start center" fxLayoutGap="16px">
+  <span
+    ><span class="quantity">{{ item.quantity }}</span> 
+  </span> 
+  <button
+    mat-stroked-button
+    color="primary"
+    class=".mat-elevation-z0"
+    (click)="plusOne()"
+  >
+    +1
+  </button>
+  <button
+    mat-stroked-button
+    color="primary"
+    class=".mat-elevation-z0"
+    (click)="minusOne()"
+  >
+    -1
+  </button>
+</div> 

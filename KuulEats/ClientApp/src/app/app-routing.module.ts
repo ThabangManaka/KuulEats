@@ -9,6 +9,7 @@ import { ReservationsComponent } from './reservations/reservations.component';
 import { RestuarantComponent } from './restuarant/restuarant.component';
 import { AuthGuard } from './shared/auth.guard';
 import { FoodPageComponent } from './food-page/food-page.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 const routes: Routes = [
   {
@@ -34,6 +35,8 @@ const routes: Routes = [
     path: 'order/:id', component: OrderComponent,
       canActivate:[AuthGuard]
   },
+
+  {path:'check-out', component: CheckoutComponent},
   // { path: 'search/:searchTerm', component: HomeComponent },
   { path: 'tag/:tag', component: OrderComponent },
   {path:'food/:id/:id', component:FoodPageComponent},

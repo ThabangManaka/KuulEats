@@ -1,10 +1,4 @@
-.container{
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  margin: 1.5rem;
-  margin-top: 0.5rem;
-}
+
 
 ul{
   display: flex;
@@ -130,4 +124,55 @@ li .remove-button:hover{
   background-size: cover;
 }
 
-img { width: 40px; height: 40px; }
+//img { width: 40px; height: 40px; }
+td img {
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+@import 'src/app/styles/colors';
+@import 'src/app/styles/font';
+@import 'src/app/styles/variables';
+
+
+
+
+mat-card {
+  width: 80%;
+  margin: 5% auto;
+  border-radius: 8px;
+}
+
+.employee-table {
+  &__content {
+    @media (max-width: $small) {
+      overflow-x: scroll;
+    }
+  }
+
+  &__table {
+    width:100%;
+    box-shadow: none;
+
+    @media (max-width: $small) {
+      width: 200%;
+    }
+  }
+
+  &__table-checkbox {
+    width: 32px;
+    padding-left: 24px;
+  }
+
+  &__table-header {
+    padding: 1rem;
+    font-size: $fs-small;
+  }
+
+  &__table-body {
+    padding: 1rem;
+    font-size: $fs-small;
+  }
+}

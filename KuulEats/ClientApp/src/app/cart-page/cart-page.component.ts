@@ -19,7 +19,7 @@ import { Food } from '../models/Food';
 export class CartPageComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  displayedColumns: string[] = ['imageUrl','name','actions'];
+  displayedColumns: string[] = ['imageUrl','name','quantity', 'price'];
   //dataSource = ELEMENT_DATA;
   //listData: MatTableDataSource<any>;
    dataSource: any;
@@ -33,7 +33,7 @@ export class CartPageComponent implements OnInit {
     console.log(this.reservationId)
     this.cartService.getCartObservable().subscribe((cart) => {
       this.cart = cart;
-      console.log(this.cart.items)
+      console.log(this.cart)
 
 
     })
@@ -45,8 +45,8 @@ export class CartPageComponent implements OnInit {
       this.cart = cart;
 
       this.allCartItems=  cart
-      console.log( this.cart.items[0].food)
-      this.dataSource = new MatTableDataSource<any>(this.allCartItems.food),
+     console.log(this.cart.items)
+      this.dataSource = new MatTableDataSource<any>(this.cart.items),
       this.dataSource.sort = this.sort,
       this.dataSource.paginator = this.paginator;
     })
@@ -58,7 +58,19 @@ export class CartPageComponent implements OnInit {
 
   changeQuantity(cartItem:CartItem,quantityInString:string){
     const quantity = parseInt(quantityInString);
-    this.cartService.changeQuantity(cartItem.food.id, quantity);
+    this.cartService.changeQuantitys(cartItem.food.id, quantity);
+  }
+
+    onQuantityPlusOne(item : any) {
+     
+      var addNumber = 1
+      this.cartService.changeQuantitys(item.food.id, addNumber);
+  }
+
+  onQuantityMinusOne(item : any)  {
+    console.log(item);
+    var minusNumber = 1
+    this.cartService. minuQuantitys(item.food.id, minusNumber);
   }
 
   order() {

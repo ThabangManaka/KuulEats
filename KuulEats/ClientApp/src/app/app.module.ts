@@ -1,3 +1,4 @@
+import { CheckoutComponent } from './checkout/checkout.component';
 import { ProductQuantityComponent } from './partials/product-quantity/product-quantity.component';
 import { SharedModule } from './shared/shared.module';
 import { CartPageComponent } from './cart-page/cart-page.component';
@@ -40,7 +41,8 @@ import { ReservationsModule } from './reservations/reservations.module';
     NotFoundComponent,
     FoodPageComponent,
     CartPageComponent,
-    ProductQuantityComponent
+    ProductQuantityComponent,
+    CheckoutComponent
 
 
 
@@ -58,7 +60,7 @@ import { ReservationsModule } from './reservations/reservations.module';
     ]),
     BrowserAnimationsModule,
     SharedModule,
-    ReservationsModule
+    ReservationsModule,
 
   ],
   providers: [],

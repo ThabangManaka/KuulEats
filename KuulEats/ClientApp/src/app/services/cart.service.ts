@@ -28,15 +28,36 @@ export class CartService {
     this.setCartToLocalStorage();
   }
 
-  changeQuantity(foodId: string, quantity: number) {
+  // changeQuantity(foodId: string, quantity: number) {
+  //   let cartItem = this.cart.items
+  //     .find(item => item.food.id === foodId);
+  //   if (!cartItem) return;
+
+  //   cartItem.quantity = quantity;
+  //   cartItem.price = quantity * cartItem.food.price;
+  //   this.setCartToLocalStorage();
+  // }
+
+  changeQuantitys(foodId: string, quantity: number) {
     let cartItem = this.cart.items
       .find(item => item.food.id === foodId);
     if (!cartItem) return;
 
-    cartItem.quantity = quantity;
+    cartItem.quantity += quantity;
     cartItem.price = quantity * cartItem.food.price;
     this.setCartToLocalStorage();
   }
+
+  minuQuantitys(foodId: string, quantity: number) {
+    let cartItem = this.cart.items
+      .find(item => item.food.id === foodId);
+    if (!cartItem) return;
+
+    cartItem.quantity -= quantity;
+    cartItem.price = quantity * cartItem.food.price;
+    this.setCartToLocalStorage();
+  }
+
 
   clearCart() {
     this.cart = new Cart();
