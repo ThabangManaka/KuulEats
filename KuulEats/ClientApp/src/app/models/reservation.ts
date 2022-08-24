@@ -1,5 +1,6 @@
 
 export interface Reservation {
+  reservationId: number;
   UserId: number;
   ReservationStatusId: number;
   StartDate: Date;
@@ -7,6 +8,6 @@ export interface Reservation {
   Contactno: string;
   People: number;
   RestuarantId: number;
-  Description: string;
-  
+  description: string;
+
 }

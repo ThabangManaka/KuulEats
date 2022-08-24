@@ -91,7 +91,7 @@
    <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef>  </th>
     <td mat-cell *matCellDef="let element; let i=index;">
-    
+
       <button mat-raised-button class="deleteBtn"   [routerLink]="['/order',element.reservationId]">
 
         <mat-icon aria-label="Delete">
@@ -106,4 +106,12 @@
 
   </mat-card-content>
 </mat-card>
+<div class="row">
+  <ng-container *ngFor="let r of reservationList ">
+    <app-reservation-card [reservation]="r" ></app-reservation-card>
+  </ng-container>
+
+</div>
+
+
 

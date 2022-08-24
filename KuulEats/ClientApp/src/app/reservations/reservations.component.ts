@@ -25,6 +25,7 @@ export class ReservationsComponent implements OnInit {
   myForm: FormGroup ;
   restuarantId: any
   userId :any;
+  reservationList: any[];
   constructor(private route: ActivatedRoute,
       private reservations : ReservationsService
       ) { }
@@ -33,6 +34,8 @@ export class ReservationsComponent implements OnInit {
 
     this.reservations.getAllReservations().subscribe(allReservation=>{
      console.log(allReservation)
+   this.reservationList = allReservation;
+
 
       this.dataSource = new MatTableDataSource<any>(allReservation),
       this.dataSource.sort = this.sort,

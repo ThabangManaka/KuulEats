@@ -121,3 +121,13 @@ li .remove-button:hover{
   opacity: 1;
   cursor: pointer;
 }
+
+
+.thumbnail {
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+  background-size: cover;
+}
+
+img { width: 40px; height: 40px; }

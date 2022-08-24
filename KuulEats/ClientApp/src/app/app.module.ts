@@ -1,3 +1,5 @@
+import { ProductQuantityComponent } from './partials/product-quantity/product-quantity.component';
+import { SharedModule } from './shared/shared.module';
 import { CartPageComponent } from './cart-page/cart-page.component';
 import { FoodPageComponent } from './food-page/food-page.component';
 import { OrderComponent } from './order/order.component';
@@ -22,6 +24,8 @@ import { TagsComponent } from './partials/tags/tags.component';
 import { SearchComponent } from './partials/search/search.component';
 import { NotFoundComponent } from './partials/not-found/not-found.component';
 
+import { ReservationsModule } from './reservations/reservations.module';
+
 
 @NgModule({
   declarations: [
@@ -30,13 +34,15 @@ import { NotFoundComponent } from './partials/not-found/not-found.component';
     LoginComponent,
     RegisterComponent,
     RestuarantComponent,
-    ReservationsComponent,
     OrderComponent,
     TagsComponent,
     SearchComponent,
     NotFoundComponent,
     FoodPageComponent,
-    CartPageComponent
+    CartPageComponent,
+    ProductQuantityComponent
+
+
 
 
   ],
@@ -48,12 +54,11 @@ import { NotFoundComponent } from './partials/not-found/not-found.component';
     ReactiveFormsModule,
     MaterialModule,
     FormsModule,
-
     RouterModule.forRoot([
-
-
     ]),
     BrowserAnimationsModule,
+    SharedModule,
+    ReservationsModule
 
   ],
   providers: [],
