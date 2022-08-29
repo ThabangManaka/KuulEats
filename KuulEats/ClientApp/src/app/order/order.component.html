@@ -46,19 +46,18 @@
 
   <mat-card-content>
   <div class="row">
-  <div class="col-md-4"><mat-icon>loyalty</mat-icon><p></p> </div>
-  <div class="col-md-4"> <mat-icon>schedule</mat-icon></div>
-    <div class="col-md-4"><mat-icon matSuffix>supervisor_account</mat-icon><p></p></div>
+  <div class="col-md-4">	<mat-icon> local_atm</mat-icon><p>{{food.price | currency}}</p> </div>
+  <div class="col-md-4"> <mat-icon>schedule</mat-icon>
+  <p>{{food.cookTime}}</p>
   </div>
+    <div class="col-md-4"><mat-icon>star</mat-icon><p>{{food.stars}}</p></div>
+  </div>
+  <h4>{{food.name}}</h4>
 
-    <p>
-      The Shiba Inu is the
-
-
-      <!-- {{cart.items[i+0].quantity}} -->
-    </p>
   </mat-card-content>
-  <div class="card-footer" >
+  <mat-card-actions>
+    
+  
     <button
      mat-raised-button class="my-class" color="danger"
     (click)="addToCart(food)">Add to Cart</button>
@@ -66,7 +65,7 @@
     <app-product-quantity></app-product-quantity>
    </ng-template>
 
-</div>
+  </mat-card-actions>
 </mat-card>
 <!-- <div class="w-100" *ngIf="(i + 1) % 2 === 0"></div> -->
 </div>

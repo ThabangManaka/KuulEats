@@ -1,3 +1,6 @@
+import { OrderSummaryComponent } from './partials/order-summary/order-summary.component';
+import { OrderReviewComponent } from './order-review/order-review.component';
+import { AddressFormComponent } from './partials/address-form/address-form.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ProductQuantityComponent } from './partials/product-quantity/product-quantity.component';
 import { SharedModule } from './shared/shared.module';
@@ -42,7 +45,10 @@ import { ReservationsModule } from './reservations/reservations.module';
     FoodPageComponent,
     CartPageComponent,
     ProductQuantityComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    AddressFormComponent,
+    OrderReviewComponent,
+    OrderSummaryComponent
 
 
 

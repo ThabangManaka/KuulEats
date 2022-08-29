@@ -18,7 +18,7 @@ export class RestuarantComponent implements OnInit {
   //dataSource = ELEMENT_DATA;
   //listData: MatTableDataSource<any>;
    dataSource: any;
-
+  listRestuarant: any;
   constructor(private restuarantService : RestuarantService,public dialog: MatDialog,
     private router : Router) { }
 
@@ -26,10 +26,11 @@ export class RestuarantComponent implements OnInit {
 
     this.restuarantService.getAllResturant().subscribe(allRestuarant=>{
       console.log(allRestuarant);
+      this.listRestuarant = allRestuarant;
       this.dataSource = new MatTableDataSource<any>(allRestuarant),
-      this.dataSource.sort = this.sort,
+     this.dataSource.sort = this.sort,
 
-      this.dataSource.paginator = this.paginator;
+  this.dataSource.paginator = this.paginator;
     })
   }
   updateDialog(id:any) {
