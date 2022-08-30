@@ -5,16 +5,16 @@
 >
   <p *ngIf=" items.totalCount === 1">This order contains 1 item.</p>
   <p *ngIf=" items.totalCount > 1">This order contains {{  items.totalCount}} items.</p>
- 
+
   <table mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="quantityAndName">
-      <td mat-cell *matCellDef="let item">{{ items.quantity}}x {{ items.food.name }}</td>
+      <td mat-cell *matCellDef="let item">{{ item.quantity}} x {{ item.food.name}}</td>
       <td mat-footer-cell *matFooterCellDef>Total</td>
     </ng-container>
 
     <ng-container matColumnDef="price">
       <td mat-cell *matCellDef="let item">
-        {{ items.items.quantity *  items.items.price | currency: 'USD':'symbol' }}
+        {{ item.quantity *  item.food.price | currency: 'USD':'symbol' }}
       </td>
       <td mat-footer-cell *matFooterCellDef>{{ items.totalPrice | currency }}</td>
     </ng-container>
@@ -22,4 +22,4 @@
     <tr mat-row *matRowDef="let row; columns: columnsToDisplay"></tr>
     <tr mat-footer-row *matFooterRowDef="columnsToDisplay"></tr>
   </table>
-</div> 
+</div>

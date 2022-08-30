@@ -1,4 +1,5 @@
-<!-- <h3>Shipping address</h3>
+<h3>Shipping address</h3>
+
 
 <form (ngSubmit)="onSubmit()" #addressForm="ngForm" fxLayout fxLayout="column" fxLayoutGap="16px">
   <mat-form-field>
@@ -12,11 +13,11 @@
       name="name"
       [disabled]="isReadOnly"
     />
-    <mat-error *ngIf="nameField.invalid && nameField.errors['required']">
+    <mat-error *ngIf="nameField?.invalid && (nameField?.dirty || nameField?.touched)">
       Name is required.
     </mat-error>
   </mat-form-field>
-
+  <br>
   <mat-form-field>
     <input
       #addressLine1Field="ngModel"
@@ -29,12 +30,12 @@
       [disabled]="isReadOnly"
     />
     <mat-error
-      *ngIf="addressLine1Field.invalid && addressLine1Field.errors['required']"
+      *ngIf="addressLine1Field.invalid && (addressLine1Field?.dirty || addressLine1Field?.touched)"
     >
       Address line 1 is required.
     </mat-error>
   </mat-form-field>
-
+  <br>
   <mat-form-field>
     <input
       type="text"
@@ -45,7 +46,7 @@
       [disabled]="isReadOnly"
     />
   </mat-form-field>
-
+  <br>
   <mat-form-field>
     <input
       #postCodeField="ngModel"
@@ -58,12 +59,12 @@
       [disabled]="isReadOnly"
     />
     <mat-error
-      *ngIf="postCodeField.invalid && postCodeField.errors['required']"
+      *ngIf="postCodeField.invalid && (postCodeField?.dirty || postCodeField?.touched)"
     >
       Post code is required.
     </mat-error>
   </mat-form-field>
-
+  <br>
   <mat-form-field>
     <input
       #cityField="ngModel"
@@ -75,11 +76,11 @@
       name="city"
       [disabled]="isReadOnly"
     />
-    <mat-error *ngIf="cityField.invalid && cityField.errors['required']">
+    <mat-error *ngIf="cityField.invalid && (cityField?.dirty || cityField?.touched)">
       City is required.
     </mat-error>
   </mat-form-field>
-
+  <br>
   <mat-form-field>
     <input
       #countryField="ngModel"
@@ -91,10 +92,10 @@
       name="country"
       [disabled]="isReadOnly"
     />
-    <mat-error *ngIf="countryField.invalid && countryField.errors['required']">
+    <mat-error *ngIf="countryField.invalid &&(countryField?.dirty || countryField?.touched)">
       Country is required.
     </mat-error>
   </mat-form-field>
-
+  <br>
   <button *ngIf="!isReadOnly" mat-flat-button color="accent" type="submit" [disabled]="!addressForm.form.valid">Place order</button>
-</form> -->
+</form> 

@@ -11,12 +11,15 @@ import { Cart } from '../models/Cart';
 })
 export class OrderReviewComponent implements OnInit {
   address$: Observable<Address>;
-  itemsSubject: BehaviorSubject<Cart>;
+  itemsSubject: Cart;
+
   addressSubject: BehaviorSubject<Address>;
+
+
   constructor(public cartService: CartService) {
 
      this.cartService.getCartObservable().subscribe(cart=> {
-      this.itemsSubject.next(cart)
+      //this.itemsSubject.next(cart)
      })
 
     this.addressSubject = new BehaviorSubject(new Address());

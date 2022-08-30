@@ -10,19 +10,22 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class OrderSummaryComponent implements OnInit {
  // @Input() items$: Observable<Cart>;
-  @Input() items: any;
+  @Input() items: Cart;
 
   itemsSubscription: Subscription;
   columnsToDisplay = ['quantityAndName', 'price'];
   dataSource: MatTableDataSource<any>;
   totalQuantity: number;
   totalPrice: number;
+
   constructor() { }
 
   ngOnInit(): void {
-   console.log(this.items)
-   
-    this.dataSource = new MatTableDataSource<any>(this.items);
+   console.log(this.items.items)
+
+    this.dataSource = new MatTableDataSource<any>(this.items.items);  
+
+    //console.log(this.dataSource)
   }
 
 }

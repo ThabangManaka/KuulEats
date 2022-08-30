@@ -19,7 +19,7 @@ import { Food } from '../models/Food';
 export class CartPageComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  displayedColumns: string[] = ['imageUrl','name','quantity', 'price'];
+  displayedColumns: string[] = ['imageUrl','name','quantity', 'price','buttons'];
   //dataSource = ELEMENT_DATA;
   //listData: MatTableDataSource<any>;
    dataSource: any;
@@ -32,9 +32,7 @@ export class CartPageComponent implements OnInit {
     this.reservationId= activatedRoute.snapshot.paramMap.get('id');
     console.log(this.reservationId)
     this.cartService.getCartObservable().subscribe((cart) => {
-      this.cart = cart;
-      console.log(this.cart)
-
+      this.cart = cart
 
     })
    }
@@ -47,6 +45,7 @@ export class CartPageComponent implements OnInit {
       this.allCartItems=  cart
      console.log(this.cart.items)
       this.dataSource = new MatTableDataSource<any>(this.cart.items),
+      console.log(this.dataSource)
       this.dataSource.sort = this.sort,
       this.dataSource.paginator = this.paginator;
     })
@@ -62,7 +61,7 @@ export class CartPageComponent implements OnInit {
   }
 
     onQuantityPlusOne(item : any) {
-     
+
       var addNumber = 1
       this.cartService.changeQuantitys(item.food.id, addNumber);
   }
@@ -80,8 +79,9 @@ export class CartPageComponent implements OnInit {
 
      }
      this.orderService.PlaceOrder(order)
+  }
 
-
+  onDelete(data :any) {
 
   }
   // this.restuarantService.getAllResturant().subscribe(allRestuarant=>{

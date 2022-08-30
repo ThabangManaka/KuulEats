@@ -1,6 +1,6 @@
 import { Address } from './../../models/Address';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-address-form',
@@ -8,6 +8,8 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./address-form.component.scss']
 })
 export class AddressFormComponent implements OnInit {
+  @Input() isReadOnly: boolean;
+  @Input() address$: Observable<Address>;
   @Output() addressSubmitted = new EventEmitter();
 
   address: Address;
