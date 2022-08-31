@@ -54,6 +54,9 @@ export class CartService {
     if (!cartItem) return;
 
     cartItem.quantity -= quantity;
+    if(cartItem.quantity  <= 0){
+      this.removeFromCart(foodId)
+    }
     cartItem.price = quantity * cartItem.food.price;
     this.setCartToLocalStorage();
   }

@@ -1,10 +1,18 @@
+<mat-card>
 <div
   fxLayout="column"
   fxLayoutAlign="start stretch"
   fxLayoutGap="32px"
 >
-  <p *ngIf=" items.totalCount === 1">This order contains 1 item.</p>
-  <p *ngIf=" items.totalCount > 1">This order contains {{  items.totalCount}} items.</p>
+<mat-toolbar class="toolbar">
+  <h5 mat-dialog-title> <p *ngIf=" items.totalCount === 1">This order contains 1 item.</p> </h5>
+
+  <h5 mat-dialog-title>  <p *ngIf=" items.totalCount > 1">This order contains {{  items.totalCount}} items.</p></h5> 
+
+ 
+    <span class="toolbar-spacer"></span>
+    </mat-toolbar>
+
 
   <table mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="quantityAndName">
@@ -23,3 +31,4 @@
     <tr mat-footer-row *matFooterRowDef="columnsToDisplay"></tr>
   </table>
 </div>
+</mat-card>
