@@ -53,10 +53,10 @@ export class CheckoutComponent implements OnInit {
   //   this.cartService.deleteCart();
 
         this.cartService.clearCart()
-        this.router.navigate(['/order-success'])
-  //   this.router.navigate(['/order-success'], {
-  //     queryParams: { orderId: docRef.id },
-  //   });
-  // }
+      //  this.router.navigate(['/order-success'])
+     this.router.navigate(['/order-success'], {
+       queryParams: { orderId:   order.id },
+    });
+   }
   }
-}
+
