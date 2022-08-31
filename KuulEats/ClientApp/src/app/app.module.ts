@@ -1,3 +1,4 @@
+import { OrderSuccessComponent } from './partials/order-success/order-success.component';
 import { OrderSummaryComponent } from './partials/order-summary/order-summary.component';
 import { OrderReviewComponent } from './order-review/order-review.component';
 import { AddressFormComponent } from './partials/address-form/address-form.component';
@@ -48,7 +49,8 @@ import { ReservationsModule } from './reservations/reservations.module';
     CheckoutComponent,
     AddressFormComponent,
     OrderReviewComponent,
-    OrderSummaryComponent
+    OrderSummaryComponent,
+    OrderSuccessComponent
 
 
 

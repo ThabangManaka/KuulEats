@@ -1,3 +1,4 @@
+import { OrderSuccessComponent } from './partials/order-success/order-success.component';
 import { CartPageComponent } from './cart-page/cart-page.component';
 
 import { NgModule } from '@angular/core';
@@ -40,7 +41,8 @@ const routes: Routes = [
   // { path: 'search/:searchTerm', component: HomeComponent },
   { path: 'tag/:tag', component: OrderComponent },
   {path:'food/:id/:id', component:FoodPageComponent},
-  {path:'cart-page/:id', component: CartPageComponent}
+  {path:'cart-page/:id', component: CartPageComponent},
+  {path: 'order-success', component: OrderSuccessComponent }
 ]
   ;
 

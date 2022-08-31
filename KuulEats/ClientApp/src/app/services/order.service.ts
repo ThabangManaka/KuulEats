@@ -1,4 +1,4 @@
-import { Order } from './../models/Oder';
+import { Order, Orders } from './../models/Oder';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -23,4 +23,23 @@ export class OrderService {
 
     return this.http.get<string[]>(this.baseUrl  );
 }
+
+createOrder(order : Orders) {
+  this.setCartToLocalStorage(order);
 }
+private setCartToLocalStorage(order : Orders): void {
+
+   const OrdersJson = JSON.stringify(order);
+    localStorage.setItem('Order',  OrdersJson );
+  // this.cartSubject.next(this.cart);
+}
+}
+// addToCart(food: Food): void {
+//   let cartItem = this.cart.items
+//     .find(item => item.food.id === food.id);
+//   if (cartItem)
+//     return;
+
+//   this.cart.items.push(new CartItem(food));
+//   this.setCartToLocalStorage();
+// }
