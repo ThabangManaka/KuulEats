@@ -1,3 +1,4 @@
+import { OrderReviewComponent } from './order-review/order-review.component';
 import { OrderSuccessComponent } from './partials/order-success/order-success.component';
 import { CartPageComponent } from './cart-page/cart-page.component';
 
@@ -11,6 +12,7 @@ import { RestuarantComponent } from './restuarant/restuarant.component';
 import { AuthGuard } from './shared/auth.guard';
 import { FoodPageComponent } from './food-page/food-page.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { MyOrdersComponent } from './my-orders/my-orders.component';
 
 const routes: Routes = [
   {
@@ -42,7 +44,18 @@ const routes: Routes = [
   { path: 'tag/:tag', component: OrderComponent },
   {path:'food/:id/:id', component:FoodPageComponent},
   {path:'cart-page/:id', component: CartPageComponent},
-  {path: 'order-success', component: OrderSuccessComponent }
+  {path: 'order-success', component: OrderSuccessComponent },
+
+  {
+    path: 'my-orders',
+    component: MyOrdersComponent,
+
+  },
+  {
+    path: 'my-orders/:id',
+    component: OrderReviewComponent,
+
+  }
 ]
   ;
 

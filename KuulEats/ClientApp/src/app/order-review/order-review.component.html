@@ -1,2 +1,21 @@
+<div class="container">
+  <h2 class="mt0">Order review</h2>
+
 <app-address-form [address$]="addressSubject" [isReadOnly]="true" fxFlex></app-address-form>
 <app-order-summary fxFlex [items]="itemsSubject"></app-order-summary>
+
+
+
+<ng-template #notFound>
+  <p>This order doesn't exist.</p>
+</ng-template>
+
+<div fxLayout fxLayoutAlign="start start" fxLayoutGap="32px" class="mt32">
+  <button routerLink="/my-orders" mat-flat-button color="accent">
+    View all my orders
+  </button>
+  <button routerLink="/" mat-flat-button color="primary">
+    Back to the shop
+  </button>
+</div>
+</div>
