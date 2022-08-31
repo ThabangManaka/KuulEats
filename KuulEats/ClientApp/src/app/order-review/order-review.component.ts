@@ -1,4 +1,4 @@
-import { Order } from './../models/Oder';
+import { Order, Orders } from './../models/Oder';
 import { CartService } from 'src/app/services/cart.service';
 import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
@@ -13,8 +13,8 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./order-review.component.scss']
 })
 export class OrderReviewComponent implements OnInit {
-  orderId: string;
-  order: Order;
+  orderId: string | null;
+  order: Orders;
 
   orderSubscription: Subscription;
   address$: Observable<Address>;
@@ -24,8 +24,12 @@ export class OrderReviewComponent implements OnInit {
 
   constructor(public cartService: CartService,
     route: ActivatedRoute,
-    orderService: OrderService,) {
+   public orderService: OrderService,) {
       this.orderId = route.snapshot.paramMap.get('id');
+
+      this.orderService.getOrderObservable().subscribe(order => {
+        this.order = order
+      })
      this.cartService.getCartObservable().subscribe(cart=> {
       //this.itemsSubject.next(cart)
      })

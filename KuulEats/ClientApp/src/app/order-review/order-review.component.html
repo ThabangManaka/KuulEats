@@ -1,9 +1,12 @@
 <div class="container">
   <h2 class="mt0">Order review</h2>
-
+  <div *ngIf="order; else notFound">
+    <p class="mb32">You are reviewing your order with ID {{ orderId }}</p>
+    <div fxLayout fxLayoutAlign="space-between start" fxLayoutGap="32px">
 <app-address-form [address$]="addressSubject" [isReadOnly]="true" fxFlex></app-address-form>
 <app-order-summary fxFlex [items]="itemsSubject"></app-order-summary>
-
+</div>
+</div>
 
 
 <ng-template #notFound>
