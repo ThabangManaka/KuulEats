@@ -42,7 +42,7 @@ private setCartToLocalStorage(order : Orders): void {
   }
 
 private getCartFromLocalStorage(): Orders {
-  const OrdersJson = localStorage.getItem('Cart');
+  const OrdersJson = localStorage.getItem('Order');
   return OrdersJson ? JSON.parse(OrdersJson) : new Orders();
 }
 }

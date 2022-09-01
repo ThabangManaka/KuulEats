@@ -28,6 +28,7 @@ export class OrderReviewComponent implements OnInit {
       this.orderId = route.snapshot.paramMap.get('id');
 
       this.orderService.getOrderObservable().subscribe(order => {
+        console.log(order.cart)
         this.order = order
       })
      this.cartService.getCartObservable().subscribe(cart=> {

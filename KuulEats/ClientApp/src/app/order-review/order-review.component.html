@@ -1,11 +1,19 @@
 <div class="container">
+  <div class="row">
   <h2 class="mt0">Order review</h2>
   <div *ngIf="order; else notFound">
     <p class="mb32">You are reviewing your order with ID {{ orderId }}</p>
-    <div fxLayout fxLayoutAlign="space-between start" fxLayoutGap="32px">
-<app-address-form [address$]="addressSubject" [isReadOnly]="true" fxFlex></app-address-form>
-<app-order-summary fxFlex [items]="itemsSubject"></app-order-summary>
+    <!-- <div fxLayout fxLayoutAlign="space-between start" fxLayoutGap="32px"> -->
+<!-- <app-address-form [address$]="addressSubject" [isReadOnly]="true" fxFlex></app-address-form> -->
+<div class="col-md-6">
+  <app-order-summary fxFlex [items]="order.cart"></app-order-summary>
 </div>
+<div class="col-md-6">
+  <app-address-display   [address]="order.address"></app-address-display>
+</div>
+
+
+
 </div>
 
 
@@ -20,5 +28,6 @@
   <button routerLink="/" mat-flat-button color="primary">
     Back to the shop
   </button>
+</div>
 </div>
 </div>
