@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>Restuarant List</h2>
+  <h3>Restuarant List</h3>
 
 
 
@@ -36,17 +36,31 @@
 
     <ng-container *ngFor="let restuarant of listRestuarant ">
     <mat-card>
-      <img mat-card-image  src="../../assets/jason-leung-poI7DelFiVA-unsplash.jpg" /> 
-    
-      <mat-card-content>
-       <h2>{{restuarant.restuarantName}}</h2>
-      </mat-card-content>
-    
+      <img mat-card-image  src="../../assets/jason-leung-poI7DelFiVA-unsplash.jpg" />
 
-  
+      <mat-card-content>
+       <h4>{{restuarant.restuarantName}}</h4>
+
+       <div class="social-list text-center">
+           <ul>
+            <li>
+             <a> <mat-icon>facebook</mat-icon></a>
+            </li>
+             <li>
+             <a><mat-icon>facebook</mat-icon></a>
+             </li>
+             <a><li> <mat-icon>tiktok</mat-icon></li></a>
+           </ul>
+
+
+       </div>
+      </mat-card-content>
+
+
+
           <button
           class="my-class"
-          mat-raised-button 
+          mat-raised-button
             color="danger"
             [routerLink]="['/reservations',restuarant.restuarantId]"
           >
@@ -56,5 +70,5 @@
 
     </mat-card>
   </ng-container>
-    
+
 </div>

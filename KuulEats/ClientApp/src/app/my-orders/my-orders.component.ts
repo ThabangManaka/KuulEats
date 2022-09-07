@@ -30,22 +30,41 @@ export class MyOrdersComponent implements OnInit {
   dataSource: any;
   ordersSubscription: Subscription;
   filterValue: string;
-  orders : Orders[];
+  orders : any;
   expandedOrder: Orders | null; // TODO: really necessary? can't any object be null implicitly?
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(orderService: OrderService) { 
-    this.dataSource = new MatTableDataSource<any>();
+  constructor(public orderService: OrderService) {
 
-    this.ordersSubscription = orderService.getOrderObservable().subscribe(orders =>{
-        orders = orders,
-        console.log(orders)
-      this.dataSource = new MatTableDataSource<Orders>(this.orders)
-    })
+    // this.dataSource = new MatTableDataSource<Orders>();
+    // this.ordersSubscription = orderService.getOrderObservable().subscribe(orders =>{
+    //     orders = orders,
+    //     this.dataSource.data = this.orders
+    //     console.log(orders)
+    // ///  this.dataSource = new MatTableDataSource<Orders>(this.orders)
+    // })
   }
 
   ngOnInit(): void {
+
+    this.ordersSubscription = this.orderService.getOrderObservable().subscribe(orders =>{
+        this.orders = orders,
+       // this.dataSource.data = this.orders
+        console.log(orders)
+   this.dataSource = new MatTableDataSource<Orders>(this.orders);
+   console.log(this.dataSource)
+    })
   }
 
+  ngAfterViewChecked() {
+    if (this.paginator && !this.dataSource.paginator) {
+      this.dataSource.paginator = this.paginator;
+    }
+
+    if (this.sort && !this.dataSource.sort) {
+      this.dataSource.sort = this.sort;
+    }
+
+}
 }
