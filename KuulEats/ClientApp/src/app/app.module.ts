@@ -1,3 +1,5 @@
+import { SpinnerInterceptor } from './helpers/spinner.interceptor';
+import { SpinnerService } from './services/spinner.service';
 import { SpinnerComponent } from './partials/spinner/spinner.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { AddressDisplayComponent } from './partials/address-display/address-display.component';
@@ -19,7 +21,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -77,7 +79,7 @@ import { ReservationsModule } from './reservations/reservations.module';
     ReservationsModule,
 
   ],
-  providers: [],
+  providers: [SpinnerService, {provide: HTTP_INTERCEPTORS, useClass:SpinnerInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
