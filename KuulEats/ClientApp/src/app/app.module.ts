@@ -1,3 +1,4 @@
+import { SpinnerComponent } from './partials/spinner/spinner.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { AddressDisplayComponent } from './partials/address-display/address-display.component';
 import { OrderSuccessComponent } from './partials/order-success/order-success.component';
@@ -54,7 +55,8 @@ import { ReservationsModule } from './reservations/reservations.module';
     OrderSummaryComponent,
     OrderSuccessComponent,
     AddressDisplayComponent,
-    MyOrdersComponent
+    MyOrdersComponent,
+    SpinnerComponent
 
 
 

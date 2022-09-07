@@ -1,1 +1,3 @@
-<p>spinner works!</p>
+<div ngIf="isLoading | async " class="overlay">
+<mat-progress-spinner class="spinner" [color]="color" mode="determinate" [value]="value"></mat-progress-spinner>
+</div>

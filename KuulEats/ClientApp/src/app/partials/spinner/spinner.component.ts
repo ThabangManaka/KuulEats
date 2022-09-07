@@ -1,4 +1,6 @@
+import { SpinnerService } from './../../services/spinner.service';
 import { Component, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-spinner',
@@ -6,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./spinner.component.scss']
 })
 export class SpinnerComponent implements OnInit {
-
-  constructor() { }
+  color ='primary';
+  mode ='determinate';
+value =50;
+isLoading: Subject<boolean> = this.spinnerService.isLoading;
+  constructor(private spinnerService: SpinnerService) { }
 
   ngOnInit(): void {
   }
