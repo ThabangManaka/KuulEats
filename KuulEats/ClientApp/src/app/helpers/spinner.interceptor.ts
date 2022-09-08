@@ -3,7 +3,9 @@ import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/c
 import { SpinnerService } from './../services/spinner.service';
 import { Injectable } from '@angular/core';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class SpinnerInterceptor implements HttpInterceptor {
 
     constructor(public spinnerService: SpinnerService){

@@ -1,3 +1,5 @@
+import { OrderService } from './services/order.service';
+import { CartService } from 'src/app/services/cart.service';
 import { SpinnerInterceptor } from './helpers/spinner.interceptor';
 import { SpinnerService } from './services/spinner.service';
 import { SpinnerComponent } from './partials/spinner/spinner.component';
@@ -35,6 +37,8 @@ import { SearchComponent } from './partials/search/search.component';
 import { NotFoundComponent } from './partials/not-found/not-found.component';
 
 import { ReservationsModule } from './reservations/reservations.module';
+import { RestuarantService } from './services/restuarant.service';
+import { AuthService } from './services/auth.service';
 
 
 @NgModule({
@@ -79,7 +83,8 @@ import { ReservationsModule } from './reservations/reservations.module';
     ReservationsModule,
 
   ],
-  providers: [SpinnerService, {provide: HTTP_INTERCEPTORS, useClass:SpinnerInterceptor, multi: true}],
+  providers: [RestuarantService,CartService,AuthService,OrderService,SpinnerService, 
+    {provide: HTTP_INTERCEPTORS, useClass:SpinnerInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

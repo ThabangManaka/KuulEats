@@ -29,9 +29,36 @@
   z-index: 999;
 
 }
+:host {
+  line-height:0;
+}
+.mat-spinner{
+  margin:0 auto;
+  margin: 5px 10px 0px 0px;
 
+}
+.mat-progress-spinner circle, .mat-spinner circle{
+  stroke: white
+}
 .toolbar-spacer{
     flex: 1 1 auto;
+}
+
+.overlay{
+  position: fixed;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(158, 158, 158, 0.52);
+  z-index: 99999;
+}
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 html, body { height: 100%; }
