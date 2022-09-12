@@ -1,8 +1,12 @@
-<div class="container">
-  <h3>Restuarant List</h3>
+<div  class="container">
+  <h3 >Restuarant List</h3>
 
 
 
+  <!-- <h2 class="mt0">My Orders</h2>
+  <div *ngIf="!dataSource.data || dataSource.data.length === 0; else ordersTable">
+    <p>You have no orders yet.</p>
+  </div> -->
 
     <!-- <table mat-table [dataSource]="dataSource" class="employee-table__table">
 
@@ -34,7 +38,8 @@
     </table> -->
 
 
-    <ng-container *ngFor="let restuarant of listRestuarant ">
+   
+    <ng-container *ngFor="let restuarant of listRestuarant " >
     <mat-card>
       <img mat-card-image  src="../../assets/jason-leung-poI7DelFiVA-unsplash.jpg" />
 
@@ -69,6 +74,11 @@
 
 
     </mat-card>
-  </ng-container>
-
+  </ng-container> 
+  <ng-template >
+   
+      <p> Restuarant List is currently empty.</p>
+  
+  </ng-template>
 </div>
+<!-- *ngIf="!this.listRestuarant; else restuarantList" -->

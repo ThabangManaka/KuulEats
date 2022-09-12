@@ -1,3 +1,8 @@
+
+<div class="backgroundImg">
+
+
+
 <div class="login-page">
     <mat-card class="mat-elevation-z12">
       <mat-card-title style="text-align:center;">Create New Reservation</mat-card-title>
@@ -62,7 +67,7 @@
     </mat-card>
   </div>
 
-
+</div>
 <!-- <mat-card>
   <mat-card-header>
       <mat-card-title>Reservation List</mat-card-title>
@@ -98,14 +103,14 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
 
-  </mat-card-content> 
+  </mat-card-content>
 </mat-card>  -->
 <div class="row">
   <ng-container *ngFor="let r of reservationList ">
     <app-reservation-card [reservation]="r" ></app-reservation-card>
   </ng-container>
 
-</div> 
+</div>
 
 
 
